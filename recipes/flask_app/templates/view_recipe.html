@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share</title>
+</head>
+<body style="padding:4rem 5rem;">
+    <div class="top" style="display:flex; ">
+        <div class="tleft">
+            <h1>Welcome, {{logged_user.first_name}}</h1>
+            <h1>{{recipe_info.name}}</h1>
+        </div>
+        <div class="tright" style="margin-left:40rem;" >
+            <a href="/recipes" style="margin-right:2rem;">back to recipes</a>
+            <a href="/users/logout">logout</a>
+            <h3 style="margin-top:3rem;">posted by {{recipe_info.user.first_name}}</h3>
+        </div>
+    </div>
+    <div class="bottom" style="display:flex; border: 2px solid black; padding:2rem 3rem; font-size:1.5rem;">
+        <div class="bleft">
+            <p>Description:</p>
+            <p>Under 30 minutes?</p>
+            <p>Instructions:</p>
+            <p>Date Made:</p>
+        </div>
+        <div class="bright" style="margin-left:4rem;">
+            <ul>{{recipe_info.description}}</ul>
+            <ul>{% if recipe_info.under30min == 1 %} yes {% else %} no {% endif %}</ul>
+            <ul>{{recipe_info.instructions}}</ul>
+            <ul>{{recipe_info.datemade}}</ul>
+        </div>
+    </div>
+</body>
+</html>
